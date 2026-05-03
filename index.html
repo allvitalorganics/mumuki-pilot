@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUMUKI · 30-Day Validation Pilot · Sensitive Ones</title>
-<meta name="description" content="A 30-day validation pilot for MUMUKI's US Amazon launch. Sensitive Ones Agency. Bilingual KR/EN.">
-<meta property="og:title" content="MUMUKI · 30-Day Validation Pilot">
-<meta property="og:description" content="A 30-day validation pilot for MUMUKI's US Amazon launch.">
+<title>MUMUKI · 30-Day Pilot Test · Sensitive Ones</title>
+<meta name="description" content="A 30-day pilot test for MUMUKI's US Amazon launch. Sensitive Ones Agency. Bilingual KR/EN.">
+<meta property="og:title" content="MUMUKI · 30-Day Pilot Test">
+<meta property="og:description" content="A 30-day pilot test for MUMUKI's US Amazon launch.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sensitive Ones Agency">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23127139'/%3E%3C/svg%3E">
@@ -33,17 +33,18 @@
   --text-muted: #B5B5B5;
   --border: rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.14);
+  --positive: #127139;
+  --neutral: #D9A441;
+  --negative: #999999;
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Pretendard", "Noto Sans KR", sans-serif;
 
-  --fs-h1: clamp(34px, 5vw + 8px, 60px);
-  --fs-h1-kr: clamp(20px, 2.4vw + 6px, 32px);
-  --fs-h2: clamp(24px, 2.4vw + 8px, 36px);
-  --fs-h2-kr: clamp(16px, 1.2vw + 8px, 22px);
-  --fs-h3: clamp(18px, 1.4vw + 8px, 24px);
-  --fs-lead: clamp(15px, 0.9vw + 6px, 19px);
-  --fs-body: clamp(13px, 0.4vw + 11px, 15px);
+  --fs-h1: clamp(32px, 4.4vw + 8px, 54px);
+  --fs-h1-kr: clamp(18px, 2vw + 6px, 28px);
+  --fs-h2: clamp(22px, 2vw + 8px, 32px);
+  --fs-h2-kr: clamp(15px, 1vw + 8px, 20px);
+  --fs-body: clamp(13px, 0.4vw + 11px, 14.5px);
 
-  --pad-section: clamp(56px, 6.5vw, 88px);
+  --pad-section: clamp(48px, 5.5vw, 76px);
   --pad-container: clamp(20px, 3vw + 8px, 32px);
   --gap-grid: clamp(12px, 1vw + 6px, 18px);
 }
@@ -98,7 +99,6 @@ body {
 /* SECTIONS */
 .section { padding: var(--pad-section) 0; position: relative; }
 .section.alt { background: var(--bg-section); }
-.section.dark { background: var(--bg-dark); color: white; }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 var(--pad-container); position: relative; }
 .section-num {
   position: absolute; top: var(--pad-section); left: var(--pad-container);
@@ -107,11 +107,7 @@ body {
 }
 @media (min-width: 1280px) { .section-num { left: -8px; opacity: 1; } }
 
-/* EYEBROW */
-.eyebrow-bilingual {
-  display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
-  margin-bottom: 18px;
-}
+.eyebrow-bilingual { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
@@ -121,351 +117,390 @@ body {
 .eyebrow.kr { color: var(--text-mid); letter-spacing: 1px; font-size: 12px; }
 .eyebrow.kr::before { background: var(--text-mid); }
 
+.section-header { margin-bottom: clamp(24px, 3.5vw, 36px); max-width: 880px; }
+.section-header h2 {
+  font-size: var(--fs-h2); font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.4px; margin-bottom: 6px;
+}
+.section-header .h2-kr {
+  font-size: var(--fs-h2-kr); font-weight: 600; line-height: 1.3;
+  color: var(--text-mid); letter-spacing: -0.2px;
+}
+
 /* HERO */
 .hero {
-  padding: clamp(72px, 9vw, 120px) 0 clamp(56px, 7vw, 96px);
+  padding: clamp(60px, 7vw, 100px) 0 clamp(48px, 6vw, 80px);
   position: relative; overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 .hero::after {
   content: ""; position: absolute; top: -100px; right: -100px;
-  width: clamp(280px, 36vw, 440px); height: clamp(280px, 36vw, 440px);
+  width: clamp(240px, 32vw, 380px); height: clamp(240px, 32vw, 380px);
   background: radial-gradient(circle, var(--accent-soft-2) 0%, transparent 70%);
   border-radius: 50%; pointer-events: none;
 }
 .hero .hero-eyebrow {
   font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 18px;
+  color: var(--accent); margin-bottom: 14px;
   display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
   position: relative; z-index: 2;
 }
 .hero .hero-eyebrow .kr {
-  color: var(--text-mid); letter-spacing: 1.5px; font-size: 12px;
-  font-weight: 600;
+  color: var(--text-mid); letter-spacing: 1.5px; font-weight: 600;
 }
 .hero h1 {
   font-size: var(--fs-h1); font-weight: 700; line-height: 1.05;
-  letter-spacing: clamp(-0.6px, -0.1vw, -1px); margin-bottom: clamp(8px, 0.8vw, 12px);
+  letter-spacing: -0.6px; margin-bottom: 6px;
   position: relative; z-index: 2;
   max-width: 920px;
 }
 .hero .h1-kr {
   font-size: var(--fs-h1-kr); font-weight: 600; line-height: 1.2;
   color: var(--text-mid); letter-spacing: -0.3px;
-  margin-bottom: clamp(28px, 3vw, 40px);
+  margin-bottom: clamp(20px, 2.5vw, 28px);
   position: relative; z-index: 2;
 }
 .hero .summary-line {
-  font-size: var(--fs-lead); font-weight: 500; color: var(--text);
-  line-height: 1.55; margin-bottom: clamp(6px, 0.6vw, 10px);
-  max-width: 780px;
+  font-size: clamp(14px, 0.6vw + 10px, 16px); font-weight: 500;
+  color: var(--text); line-height: 1.55; max-width: 720px;
   position: relative; z-index: 2;
 }
-.hero .summary-line.kr {
-  color: var(--text-mid); font-weight: 400;
-  margin-bottom: clamp(8px, 1vw, 12px);
-}
-.hero-meta-row {
-  margin-top: clamp(28px, 3vw, 40px);
-  padding-top: clamp(22px, 2.5vw, 32px);
-  border-top: 1px solid var(--border);
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 2.5vw, 32px);
-  position: relative; z-index: 2;
-}
-.hero-meta-row .meta-item .meta-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-soft); margin-bottom: 6px;
-}
-.hero-meta-row .meta-item .meta-value {
-  font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.45;
-}
-.hero-meta-row .meta-item .meta-value-kr {
-  font-size: 13px; color: var(--text-mid); font-weight: 500; margin-top: 2px;
-}
+.hero .summary-line.kr { color: var(--text-mid); font-weight: 400; margin-top: 4px; }
+
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: clamp(16px, 2vw, 24px);
-  margin-top: clamp(36px, 4vw, 56px); padding-top: clamp(24px, 3vw, 36px);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: clamp(14px, 1.5vw, 22px);
+  margin-top: clamp(28px, 3.5vw, 44px);
+  padding-top: clamp(20px, 2.5vw, 30px);
   border-top: 1px solid var(--border);
   position: relative; z-index: 2;
 }
 .hero-stats .item .num {
-  font-size: clamp(26px, 1.8vw + 14px, 38px); font-weight: 700;
+  font-size: clamp(24px, 1.6vw + 12px, 34px); font-weight: 700;
   color: var(--accent); letter-spacing: -0.5px; line-height: 1;
 }
 .hero-stats .item .label {
   font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
-  color: var(--text); margin-top: 8px;
+  color: var(--text); margin-top: 6px;
 }
 .hero-stats .item .label-kr {
   font-size: 11px; color: var(--text-mid); font-weight: 500; margin-top: 2px;
 }
 
-/* SECTION HEADER */
-.section-header { margin-bottom: clamp(32px, 5vw, 48px); max-width: 880px; }
-.section-header h2 {
-  font-size: var(--fs-h2); font-weight: 700; line-height: 1.1;
-  letter-spacing: clamp(-0.4px, -0.08vw, -0.8px); margin-bottom: clamp(8px, 1vw, 12px);
-}
-.section-header .h2-kr {
-  font-size: var(--fs-h2-kr); font-weight: 600; line-height: 1.3;
-  color: var(--text-mid); letter-spacing: -0.2px;
-  margin-bottom: clamp(12px, 1.5vw, 18px);
-}
-.section-header .desc {
-  font-size: clamp(14px, 0.5vw + 11px, 16px);
-  color: var(--text-mid); line-height: 1.65;
-  max-width: 760px;
-}
-.section-header .desc-kr {
-  font-size: clamp(12.5px, 0.4vw + 11px, 14.5px);
-  color: var(--text-soft); line-height: 1.7; margin-top: 6px;
-  max-width: 760px;
-}
-
-/* CALLOUT */
-.callout {
-  background: var(--bg-card); border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0;
-  padding: clamp(18px, 1.6vw + 10px, 24px) clamp(20px, 2vw + 10px, 28px);
-  margin: clamp(24px, 3vw, 32px) 0 0;
-  font-size: clamp(13px, 0.4vw + 11px, 14.5px);
-  line-height: 1.65; color: var(--text);
-}
-.callout strong { font-weight: 700; }
-.callout .kr {
-  font-size: 12.5px;
-  color: var(--text-mid); line-height: 1.7; margin-top: 10px;
-  padding-top: 10px; border-top: 1px dashed var(--border);
-}
-
-/* WHAT IT IS / ISN'T grid */
-.frame-grid {
+.hero-meta-row {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: var(--gap-grid);
-  margin-top: clamp(28px, 3vw, 40px);
+  gap: clamp(20px, 2vw, 28px);
+  padding-top: clamp(20px, 2.5vw, 28px);
+  margin-top: clamp(20px, 2.5vw, 28px);
+  border-top: 1px solid var(--border);
+  position: relative; z-index: 2;
 }
-.frame-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: clamp(24px, 2vw + 12px, 32px);
-  display: flex; flex-direction: column; gap: 12px;
+.hero-meta-row .meta-item .meta-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-soft); margin-bottom: 4px;
 }
-.frame-card.is { border-left: 4px solid var(--accent); }
-.frame-card.isnt { border-left: 4px solid var(--text-soft); background: var(--muted-bg); }
-.frame-card .frame-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--accent);
+.hero-meta-row .meta-item .meta-value {
+  font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4;
 }
-.frame-card.isnt .frame-label { color: var(--text-soft); }
-.frame-card h3 {
-  font-size: clamp(18px, 1.2vw + 8px, 22px); font-weight: 700;
-  letter-spacing: -0.3px; line-height: 1.25;
-}
-.frame-card .h3-kr {
-  font-size: clamp(13px, 0.5vw + 9px, 15px); font-weight: 600;
-  color: var(--text-mid); letter-spacing: -0.1px;
-}
-.frame-card ul { list-style: none; padding: 0; margin: 4px 0 0; }
-.frame-card ul li {
-  font-size: 13.5px; color: var(--text); line-height: 1.6;
-  padding: 5px 0 5px 16px; position: relative;
-}
-.frame-card ul li::before {
-  content: ""; position: absolute; left: 0; top: 12px;
-  width: 6px; height: 6px;
-  background: var(--accent); border-radius: 50%;
-}
-.frame-card.isnt ul li { color: var(--text-mid); }
-.frame-card.isnt ul li::before { background: var(--text-soft); }
-.frame-card ul li .kr {
-  display: block; font-size: 12px; color: var(--text-mid); margin-top: 2px;
-}
-.frame-card.isnt ul li .kr { color: var(--text-soft); }
-
-/* PLAN — 3 creator role blocks */
-.plan-grid {
-  display: grid; grid-template-columns: 1fr;
-  gap: var(--gap-grid);
-}
-.plan-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; overflow: hidden;
-  display: grid; grid-template-columns: 200px 1fr;
-}
-.plan-card .plan-side {
-  background: var(--bg-section);
-  padding: clamp(22px, 2vw + 10px, 28px);
-  display: flex; flex-direction: column; justify-content: space-between;
-  border-right: 1px solid var(--border); gap: 14px;
-}
-.plan-card .plan-role {
-  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--accent);
-}
-.plan-card .plan-role-kr {
+.hero-meta-row .meta-item .meta-value-kr {
   font-size: 12px; color: var(--text-mid); font-weight: 500; margin-top: 2px;
 }
-.plan-card .plan-budget {
-  font-size: clamp(18px, 1.2vw + 8px, 22px); font-weight: 700;
-  color: var(--accent-deep); letter-spacing: -0.3px; line-height: 1;
-  padding-top: 14px; border-top: 1px solid var(--border);
+
+/* BUDGET BAR — stacked horizontal chart */
+.budget-bar-wrap {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(20px, 2vw + 8px, 28px);
 }
-.plan-card .plan-budget-label {
-  font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
-  color: var(--text-soft); margin-top: 4px;
+.budget-bar-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 14px; flex-wrap: wrap; gap: 10px;
 }
-.plan-card .plan-body {
-  padding: clamp(22px, 2vw + 10px, 28px);
+.budget-bar-title {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.3px;
+}
+.budget-bar-title .kr { font-size: 12px; color: var(--text-mid); font-weight: 500; margin-left: 8px; }
+.budget-bar-total {
+  font-size: clamp(20px, 1.4vw + 8px, 26px); font-weight: 700;
+  color: var(--accent-deep); letter-spacing: -0.4px;
+  font-variant-numeric: tabular-nums;
+}
+.budget-bar {
+  display: flex; height: 56px; border-radius: 8px; overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.budget-segment {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 14px; color: white;
+  font-variant-numeric: tabular-nums;
+  position: relative; min-width: 0;
+}
+.budget-segment.s1 { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%); }
+.budget-segment.s2 { background: linear-gradient(180deg, #5a8e6c 0%, #467053 100%); }
+.budget-segment.s3 { background: linear-gradient(180deg, #99a89e 0%, #7d8e84 100%); }
+.budget-segment .seg-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; opacity: 0.85;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.budget-segment .seg-pct {
+  font-size: 16px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.1;
+}
+.budget-legend {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; margin-top: 16px;
+  padding-top: 16px; border-top: 1px solid var(--border);
+}
+.legend-item { display: flex; gap: 10px; align-items: flex-start; }
+.legend-item .swatch {
+  width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; margin-top: 3px;
+}
+.legend-item .swatch.s1 { background: var(--accent); }
+.legend-item .swatch.s2 { background: #5a8e6c; }
+.legend-item .swatch.s3 { background: #99a89e; }
+.legend-item .legend-text { font-size: 12.5px; line-height: 1.55; }
+.legend-item .legend-text strong { font-weight: 700; display: block; margin-bottom: 1px; }
+.legend-item .legend-text .amount { font-variant-numeric: tabular-nums; color: var(--text-mid); }
+.legend-item .legend-text .kr { display: block; font-size: 11.5px; color: var(--text-mid); margin-top: 2px; }
+
+/* ROLE / PLAN cards · 2 roles only */
+.role-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--gap-grid);
+  margin-top: clamp(20px, 2.5vw, 28px);
+}
+.role-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: clamp(20px, 2vw + 10px, 28px);
   display: flex; flex-direction: column; gap: 12px;
 }
-.plan-card h3 {
-  font-size: clamp(18px, 1.2vw + 8px, 22px); font-weight: 700;
+.role-card .role-num {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--accent);
+}
+.role-card h3 {
+  font-size: clamp(17px, 1vw + 8px, 20px); font-weight: 700;
   letter-spacing: -0.3px; line-height: 1.25;
 }
-.plan-card .h3-kr {
-  font-size: clamp(13px, 0.5vw + 9px, 15px); font-weight: 600;
-  color: var(--text-mid); letter-spacing: -0.1px; margin-top: 2px;
+.role-card .h3-kr {
+  font-size: clamp(13px, 0.4vw + 9px, 14.5px); font-weight: 600;
+  color: var(--text-mid); letter-spacing: -0.1px;
 }
-.plan-card .plan-detail {
-  font-size: 13.5px; color: var(--text); line-height: 1.65;
+.role-card .stat-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
 }
-.plan-card .plan-detail.kr {
-  color: var(--text-mid); font-size: 12.5px;
-  padding-top: 10px; border-top: 1px dashed var(--border);
+.role-card .stat-row .stat .label {
+  font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-soft);
 }
-.plan-card .content-list {
-  list-style: none; padding: 0; margin: 4px 0 0;
-  border-top: 1px solid var(--border); padding-top: 12px;
+.role-card .stat-row .stat .value {
+  font-size: 14px; font-weight: 700; color: var(--text); margin-top: 3px;
+  font-variant-numeric: tabular-nums;
 }
-.plan-card .content-list li {
+.role-card ul { list-style: none; padding: 0; margin: 0; }
+.role-card ul li {
   font-size: 13px; color: var(--text); line-height: 1.5;
-  padding: 4px 0 4px 16px; position: relative;
+  padding: 4px 0 4px 14px; position: relative;
 }
-.plan-card .content-list li::before {
+.role-card ul li::before {
   content: ""; position: absolute; left: 0; top: 11px;
   width: 5px; height: 5px;
   background: var(--accent); border-radius: 50%;
 }
-.plan-card .content-list li .kr {
-  display: block; font-size: 12px; color: var(--text-mid); margin-top: 1px;
-}
+.role-card ul li .kr { display: block; font-size: 11.5px; color: var(--text-mid); margin-top: 2px; }
 
-/* TIMELINE */
-.timeline {
+/* TIMELINE — concise stepper */
+.timeline-table {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.timeline-row {
+  display: grid; grid-template-columns: 80px 140px 1fr;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+.timeline-row:last-child { border-bottom: none; }
+.timeline-row.production { background: var(--accent-soft); }
+.timeline-row .week {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--accent);
+}
+.timeline-row .when {
+  font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+.timeline-row .when-kr { display: block; font-size: 11px; color: var(--text-mid); font-weight: 500; margin-top: 2px; }
+.timeline-row .what { font-size: 13px; color: var(--text); line-height: 1.5; }
+.timeline-row .what-kr { display: block; font-size: 12px; color: var(--text-mid); margin-top: 3px; }
+
+/* KPI TABLE */
+.kpi-wrap {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 12px; overflow: hidden;
   margin-top: clamp(20px, 2vw, 28px);
 }
-.timeline-row {
-  display: grid; grid-template-columns: 56px 200px 1fr;
-  align-items: start;
-  padding: clamp(14px, 1.5vw + 6px, 18px) clamp(18px, 2vw + 8px, 28px);
-  border-bottom: 1px solid var(--border); gap: 18px;
-}
-.timeline-row:last-child { border-bottom: none; }
-.timeline-row .step-num {
-  width: 36px; height: 36px;
-  background: var(--accent-soft); color: var(--accent);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700; flex-shrink: 0;
-}
-.timeline-row .when {
-  font-size: 13px; font-weight: 700; color: var(--accent-deep);
-  font-variant-numeric: tabular-nums;
-}
-.timeline-row .when-kr {
-  font-size: 12px; color: var(--text-mid); font-weight: 500;
-  margin-top: 2px;
-}
-.timeline-row .what {
-  font-size: 13.5px; color: var(--text); font-weight: 600; line-height: 1.5;
-}
-.timeline-row .what-kr {
-  display: block; font-size: 12.5px; color: var(--text-mid); font-weight: 400; margin-top: 4px;
-}
-
-/* DELIVERABLES list */
-.deliverables {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: clamp(24px, 2vw + 12px, 32px);
-  margin-top: clamp(20px, 2vw, 28px);
-}
-.deliverables ul { list-style: none; padding: 0; margin: 0; }
-.deliverables ul li {
-  font-size: 13.5px; color: var(--text); line-height: 1.65;
-  padding: 8px 0 8px 18px; position: relative;
+.kpi-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.kpi-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 600px; }
+.kpi-table thead th {
+  background: var(--bg-section);
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--text);
   border-bottom: 1px solid var(--border);
 }
-.deliverables ul li:last-child { border-bottom: none; }
-.deliverables ul li::before {
-  content: ""; position: absolute; left: 0; top: 17px;
-  width: 6px; height: 6px;
-  background: var(--accent); border-radius: 50%;
+.kpi-table thead th .kr {
+  display: block; font-size: 10px; color: var(--text-mid);
+  font-weight: 500; letter-spacing: 0.2px; text-transform: none; margin-top: 2px;
 }
-.deliverables ul li .kr {
-  display: block; font-size: 12px; color: var(--text-mid); margin-top: 2px;
+.kpi-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
 }
+.kpi-table tbody tr:last-child td { border-bottom: none; }
+.kpi-table tbody tr:hover { background: var(--accent-soft); }
+.kpi-table .metric { font-weight: 700; color: var(--text); }
+.kpi-table .metric .kr { display: block; font-size: 11.5px; color: var(--text-mid); font-weight: 500; margin-top: 2px; }
+.kpi-table .target {
+  font-weight: 700; color: var(--accent-deep);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.kpi-table .note { color: var(--text-mid); font-size: 12.5px; }
+.kpi-table .note .kr { display: block; font-size: 11.5px; color: var(--text-soft); margin-top: 2px; }
 
-/* AFTER PILOT — paths grid */
-.paths-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--gap-grid); margin-top: clamp(24px, 3vw, 32px);
+/* OUT OF SCOPE — small box */
+.scope-box {
+  background: var(--muted-bg); border-left: 3px solid var(--text-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin-top: 16px;
+  font-size: 12.5px; line-height: 1.65; color: var(--text-mid);
 }
-.path-card {
+.scope-box strong { color: var(--text); font-weight: 700; }
+.scope-box .kr { font-size: 11.5px; display: block; margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(0,0,0,0.08); color: var(--text-soft); }
+
+/* DECISION TREE */
+.decision-tree {
+  display: flex; flex-direction: column; align-items: center;
+  margin-top: clamp(20px, 2.5vw, 28px);
+}
+.tree-trunk {
+  background: var(--accent); color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 0;
+}
+.tree-trunk .kr { font-size: 11px; opacity: 0.85; font-weight: 500; margin-left: 8px; letter-spacing: 0.5px; }
+.tree-stem { width: 2px; height: 28px; background: var(--border); }
+.tree-branches {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-grid);
+  width: 100%;
+  position: relative;
+}
+.tree-branches::before {
+  content: ""; position: absolute;
+  top: 0; left: 16.66%; right: 16.66%;
+  height: 2px; background: var(--border);
+}
+.tree-branch {
+  position: relative; padding-top: 28px;
+}
+.tree-branch::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 28px; background: var(--border);
+}
+.branch-card {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: clamp(22px, 2vw + 10px, 28px);
+  border-radius: 10px; padding: 18px 20px;
   display: flex; flex-direction: column; gap: 10px;
+  height: 100%;
 }
-.path-card .path-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--accent);
+.tree-branch.positive .branch-card { border-color: var(--positive); border-top: 4px solid var(--positive); }
+.tree-branch.neutral .branch-card { border-top: 4px solid var(--neutral); }
+.tree-branch.negative .branch-card { border-top: 4px solid var(--negative); }
+.branch-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  padding: 3px 8px;
+  align-self: flex-start;
+  border-radius: 100px;
 }
-.path-card h4 {
-  font-size: 16px; font-weight: 700; letter-spacing: -0.2px; line-height: 1.3;
+.tree-branch.positive .branch-tag { background: var(--accent-soft); color: var(--positive); }
+.tree-branch.neutral .branch-tag { background: var(--honey-soft); color: var(--honey); }
+.tree-branch.negative .branch-tag { background: rgba(0,0,0,0.05); color: var(--negative); }
+.branch-criteria {
+  font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.4;
 }
-.path-card .h4-kr {
-  font-size: 13px; font-weight: 600; color: var(--text-mid); letter-spacing: -0.1px;
+.branch-criteria .kr { display: block; font-size: 12px; color: var(--text-mid); font-weight: 500; margin-top: 2px; }
+.branch-data {
+  font-size: 11.5px; color: var(--text-mid); line-height: 1.55;
+  font-variant-numeric: tabular-nums;
 }
-.path-card p {
-  font-size: 12.5px; color: var(--text-mid); line-height: 1.65;
-  padding-top: 10px; margin-top: 4px;
-  border-top: 1px solid var(--border);
+.branch-arrow {
+  font-size: 14px; color: var(--text-soft); text-align: center;
 }
+.branch-decision {
+  font-size: 13px; font-weight: 700;
+  padding-top: 8px; border-top: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+}
+.tree-branch.positive .branch-decision { color: var(--positive); }
+.tree-branch.neutral .branch-decision { color: var(--honey); }
+.tree-branch.negative .branch-decision { color: var(--negative); }
+.branch-decision .kr { display: block; font-size: 11.5px; font-weight: 500; color: var(--text-mid); margin-top: 2px; }
 
 /* NEXT STEPS */
 .next-steps {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap-grid); margin-top: clamp(28px, 3vw, 36px);
+  gap: var(--gap-grid);
+  margin-top: clamp(20px, 2.5vw, 28px);
 }
 .next-step {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: clamp(20px, 1.8vw + 8px, 26px);
-  display: flex; flex-direction: column; gap: 8px;
+  border-radius: 12px; padding: 20px 22px;
+  display: flex; flex-direction: column; gap: 6px;
 }
 .next-step .num {
-  font-size: 13px; font-weight: 700; color: var(--accent);
-  letter-spacing: 1.5px; text-transform: uppercase;
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  letter-spacing: 1.2px; text-transform: uppercase;
 }
 .next-step .title {
-  font-size: 15px; font-weight: 700; line-height: 1.3; color: var(--text); margin-top: 4px;
+  font-size: 14px; font-weight: 700; line-height: 1.3; color: var(--text); margin-top: 4px;
 }
 .next-step .title-kr {
-  font-size: 12.5px; font-weight: 600; color: var(--text-mid); line-height: 1.4;
+  font-size: 12px; font-weight: 600; color: var(--text-mid); line-height: 1.4;
 }
 .next-step .desc {
-  font-size: 12.5px; color: var(--text-mid); line-height: 1.65;
-  border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px;
+  font-size: 12px; color: var(--text-mid); line-height: 1.65;
+  border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px;
 }
-.next-step .desc-kr {
-  font-size: 11.5px; color: var(--text-soft); line-height: 1.7; margin-top: 4px;
+.next-step .desc-kr { font-size: 11.5px; color: var(--text-soft); margin-top: 4px; }
+
+/* DISCLOSURE */
+.disclosure {
+  margin-top: clamp(20px, 2.5vw, 28px);
+  padding: 14px 20px;
+  background: var(--bg-card); border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 12.5px; line-height: 1.65; color: var(--text-mid);
 }
+.disclosure strong { color: var(--text); }
+.disclosure .kr { display: block; font-size: 11.5px; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); }
 
 /* FOOTER */
 .footer {
   background: var(--bg-dark); color: white;
-  padding: clamp(56px, 6vw, 80px) 0 clamp(36px, 4vw, 48px);
+  padding: clamp(48px, 5vw, 72px) 0 clamp(32px, 3.5vw, 44px);
   position: relative; overflow: hidden;
 }
 .footer::before {
@@ -481,7 +516,7 @@ body {
 .footer .brand { color: white; }
 .footer .brand .name { color: white; }
 .footer .signoff .who {
-  font-size: clamp(22px, 1.4vw + 14px, 28px); font-weight: 700;
+  font-size: clamp(20px, 1.2vw + 12px, 26px); font-weight: 700;
   margin-bottom: 4px; letter-spacing: -0.4px;
 }
 .footer .signoff .role { font-size: 13px; color: rgba(255,255,255,0.55); }
@@ -499,7 +534,7 @@ body {
 .footer .contact-block a:hover { color: var(--honey); }
 .footer-bottom-wrap { padding: 0 var(--pad-container); max-width: 1180px; margin: 0 auto; }
 .footer-bottom {
-  margin-top: clamp(40px, 5vw, 56px); padding-top: 24px;
+  margin-top: clamp(36px, 4vw, 48px); padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 11px; color: rgba(255,255,255,0.4);
   letter-spacing: 1.5px; text-transform: uppercase; text-align: center;
@@ -508,28 +543,26 @@ body {
 /* RESPONSIVE */
 @media (max-width: 880px) { .nav-links { display: none; } }
 @media (max-width: 720px) {
-  .frame-grid { grid-template-columns: 1fr; }
-  .plan-card { grid-template-columns: 1fr; }
-  .plan-card .plan-side { border-right: none; border-bottom: 1px solid var(--border); }
+  .role-grid { grid-template-columns: 1fr; }
   .timeline-row {
-    grid-template-columns: 36px 1fr;
-    grid-template-areas: "num what" "num when";
-    gap: 4px 14px;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 18px;
   }
-  .timeline-row .step-num { grid-area: num; width: 32px; height: 32px; font-size: 12px; }
-  .timeline-row .when {
-    grid-area: when; font-weight: 500; color: var(--text-mid); font-size: 12px; margin-top: 6px;
-  }
-  .timeline-row .what { grid-area: what; }
+  .timeline-row .when { font-size: 11px; }
+  .tree-branches { grid-template-columns: 1fr; gap: 12px; }
+  .tree-branches::before { display: none; }
+  .tree-branch::before { display: none; }
+  .tree-branch { padding-top: 0; }
+  .tree-stem { display: none; }
   .next-steps { grid-template-columns: 1fr; }
   .hero-meta-row { grid-template-columns: 1fr; }
   .footer .container { grid-template-columns: 1fr; gap: 24px; }
   .container, .nav-inner, .footer-bottom-wrap { padding-left: 18px; padding-right: 18px; }
-  .hero { padding: 48px 0 56px; }
 }
 @media print {
   .nav { display: none; }
-  .section { padding: 32px 0; page-break-inside: avoid; }
+  .section { padding: 28px 0; page-break-inside: avoid; }
   body { background: white; }
 }
 </style>
@@ -547,10 +580,10 @@ body {
       <span class="cobrand-pill">× MUMUKI · Pilot</span>
     </div>
     <div class="nav-links">
-      <a href="#frame">Frame · 프레임</a>
-      <a href="#plan">Plan · 플랜</a>
+      <a href="#budget">Budget · 예산</a>
+      <a href="#plan">Plan · 구성</a>
       <a href="#timeline">Timeline · 타임라인</a>
-      <a href="#deliverables">Output · 결과물</a>
+      <a href="#kpi">KPIs · 지표</a>
       <a href="#after">After · 이후</a>
     </div>
     <div class="nav-status">Confidential · 기밀</div>
@@ -561,14 +594,37 @@ body {
 <section class="hero" id="top">
   <div class="container">
     <div class="hero-eyebrow">
-      <span>30-Day Validation Pilot</span>
-      <span class="kr">30일 검증 파일럿</span>
+      <span>Pilot Test · 30 Days</span>
+      <span class="kr">파일럿 테스트 · 30일</span>
     </div>
-    <h1>A small test, run honestly.</h1>
-    <div class="h1-kr">작은 테스트, 정직하게 운영합니다.</div>
+    <h1>30-Day Pilot Test</h1>
+    <div class="h1-kr">30일 파일럿 테스트</div>
 
-    <p class="summary-line">A 30-day validation pilot for MUMUKI's US Amazon launch. One macro creator, mass micro seeding via 누리, Spark Ads on the strongest piece. Not a launch campaign — a signal test before any larger commitment.</p>
-    <p class="summary-line kr">MUMUKI 미국 아마존 런칭을 위한 30일 검증 파일럿. 매크로 크리에이터 1명, 누리를 통한 마이크로 매스 시딩, 가장 반응 좋은 콘텐츠에 스파크 광고. 본격 런칭 캠페인이 아닌 — 더 큰 규모 진행 전 시그널 테스트입니다.</p>
+    <p class="summary-line">3,000만원. One macro creator, micro seeding, 30 days. Test before scale.</p>
+    <p class="summary-line kr">3,000만원. 매크로 1인, 마이크로 시딩, 30일. 확장 전 테스트.</p>
+
+    <div class="hero-stats">
+      <div class="item">
+        <div class="num">30</div>
+        <div class="label">Days</div>
+        <div class="label-kr">일</div>
+      </div>
+      <div class="item">
+        <div class="num">3,000만원</div>
+        <div class="label">Budget</div>
+        <div class="label-kr">예산</div>
+      </div>
+      <div class="item">
+        <div class="num">1 + 60–100</div>
+        <div class="label">Macro + Micro</div>
+        <div class="label-kr">매크로 + 마이크로</div>
+      </div>
+      <div class="item">
+        <div class="num">62–107</div>
+        <div class="label">Total Pieces</div>
+        <div class="label-kr">총 콘텐츠</div>
+      </div>
+    </div>
 
     <div class="hero-meta-row">
       <div class="meta-item">
@@ -579,183 +635,140 @@ body {
       <div class="meta-item">
         <div class="meta-label">Prepared by · 제안 주체</div>
         <div class="meta-value">Sensitive Ones Agency</div>
-        <div class="meta-value-kr">센서티브 원즈 에이전시 · 2026년 5월 3일</div>
-      </div>
-    </div>
-
-    <div class="hero-stats">
-      <div class="item">
-        <div class="num">30</div>
-        <div class="label">Days</div>
-        <div class="label-kr">일</div>
-      </div>
-      <div class="item">
-        <div class="num">3,000만원</div>
-        <div class="label">Budget · KRW</div>
-        <div class="label-kr">예산 · 원화 기준</div>
-      </div>
-      <div class="item">
-        <div class="num">1 + ~100</div>
-        <div class="label">Macro + Micro Seeding</div>
-        <div class="label-kr">매크로 + 마이크로 시딩</div>
-      </div>
-      <div class="item">
-        <div class="num">Test</div>
-        <div class="label">Mode · Not Launch</div>
-        <div class="label-kr">테스트 · 런칭 아님</div>
+        <div class="meta-value-kr">센서티브 원즈 에이전시 · 2026.05.03</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 1 · FRAME (HONEST) -->
-<section class="section" id="frame">
+<!-- 1 · BUDGET -->
+<section class="section" id="budget">
   <div class="container">
     <div class="section-num">01</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">Honest Frame</div>
-      <div class="eyebrow kr">정직한 프레이밍</div>
+      <div class="eyebrow">Budget Allocation</div>
+      <div class="eyebrow kr">예산 분배</div>
     </div>
     <div class="section-header">
-      <h2>What this pilot is, and what it isn't.</h2>
-      <div class="h2-kr">이 파일럿이 무엇이고, 무엇이 아닌지.</div>
-      <p class="desc">3,000만원 is a real budget but a small one for US K-beauty creator marketing. We want to be straightforward about what it can and cannot deliver before we start, not after.</p>
-      <p class="desc-kr">3,000만원은 실질적인 예산이지만 미국 K-뷰티 크리에이터 마케팅 기준에서는 작은 규모입니다. 시작한 후가 아닌 시작 전에, 무엇을 기대할 수 있고 무엇을 기대할 수 없는지를 명확히 말씀드리는 것이 옳다고 판단했습니다.</p>
+      <h2>3,000만원, three line items.</h2>
+      <div class="h2-kr">3,000만원, 세 항목.</div>
     </div>
 
-    <div class="frame-grid">
-      <div class="frame-card is">
-        <div class="frame-label">What this is · 가능한 것</div>
-        <h3>A signal test.</h3>
-        <div class="h3-kr">시그널 테스트.</div>
-        <ul>
-          <li>Real US audience reaction data on the BDRN ingredient story <span class="kr">BDRN 성분 스토리에 대한 실제 미국 오디언스 반응 데이터</span></li>
-          <li>Baseline Amazon listing CTR after creator drop <span class="kr">크리에이터 드롭 이후 아마존 리스팅 CTR 베이스라인</span></li>
-          <li>Comment and save velocity on creator content <span class="kr">크리에이터 콘텐츠의 댓글·저장 속도</span></li>
-          <li>Direction on which content angle pulls — explainer vs lifestyle vs review <span class="kr">어떤 콘텐츠 앵글이 잘 통하는지 — 해설형 / 라이프스타일 / 리뷰형</span></li>
-          <li>A go/no-go decision for scaling to a full campaign <span class="kr">정식 캠페인으로의 확장 여부에 대한 명확한 판단 근거</span></li>
-        </ul>
+    <div class="budget-bar-wrap">
+      <div class="budget-bar-header">
+        <div class="budget-bar-title">Total <span class="kr">총액</span></div>
+        <div class="budget-bar-total">₩30,000,000</div>
       </div>
-      <div class="frame-card isnt">
-        <div class="frame-label">What this isn't · 약속 드릴 수 없는 것</div>
-        <h3>A viral break or full launch.</h3>
-        <div class="h3-kr">바이럴 브레이크 또는 본격 런칭.</div>
-        <ul>
-          <li>1M+ view break on a single piece <span class="kr">단일 콘텐츠 100만+ 뷰 돌파</span></li>
-          <li>Amazon ranking lift into category top 50 <span class="kr">아마존 카테고리 Top 50 진입</span></li>
-          <li>Founder narrative or brand story work <span class="kr">창업자 내러티브 또는 브랜드 스토리 작업</span></li>
-          <li>Sustained brand build across multiple months <span class="kr">수개월에 걸친 지속적인 브랜드 빌드</span></li>
-          <li>A guarantee of meaningful Amazon order volume <span class="kr">의미 있는 수준의 아마존 주문량 보장</span></li>
-        </ul>
+      <div class="budget-bar">
+        <div class="budget-segment s1" style="width: 60%">
+          <div class="seg-label">Macro Lead</div>
+          <div class="seg-pct">60%</div>
+        </div>
+        <div class="budget-segment s2" style="width: 30%">
+          <div class="seg-label">Micro Seeding</div>
+          <div class="seg-pct">30%</div>
+        </div>
+        <div class="budget-segment s3" style="width: 10%">
+          <div class="seg-label">Mgmt</div>
+          <div class="seg-pct">10%</div>
+        </div>
       </div>
-    </div>
-
-    <div class="callout">
-      <strong>Why we're saying this upfront.</strong> A larger budget would change the answer. At 3,000만원, the right framing is "let's see if there's signal." If the signal is positive, scaling is straightforward. If it isn't, we've saved MUMUKI from a larger commitment based on assumption.
-      <div class="kr"><strong>이 부분을 미리 말씀드리는 이유.</strong> 예산 규모가 더 컸다면 답변이 달라집니다. 3,000만원 기준에서는 "시그널이 있는지 먼저 확인해보자"가 옳은 프레이밍입니다. 시그널이 긍정적이면 확장이 자연스럽게 이어지고, 그렇지 않다면 가정에 근거한 더 큰 약정으로부터 MUMUKI를 보호하는 결정이 됩니다.</div>
+      <div class="budget-legend">
+        <div class="legend-item">
+          <div class="swatch s1"></div>
+          <div class="legend-text">
+            <strong>Macro Lead · 60%</strong>
+            <span class="amount">₩18,000,000</span>
+            <span class="kr">메인 매크로 크리에이터 단가</span>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="swatch s2"></div>
+          <div class="legend-text">
+            <strong>Micro Seeding · 30%</strong>
+            <span class="amount">₩9,000,000</span>
+            <span class="kr">마이크로 60–100명 시딩 비용</span>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="swatch s3"></div>
+          <div class="legend-text">
+            <strong>Sensitive Ones Mgmt · 10%</strong>
+            <span class="amount">₩3,000,000</span>
+            <span class="kr">에이전시 운영·브리핑·리포팅</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 2 · THE PLAN -->
+<!-- 2 · PLAN · 2 ROLES -->
 <section class="section alt" id="plan">
   <div class="container">
     <div class="section-num">02</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">The Plan · Who and What</div>
-      <div class="eyebrow kr">플랜 · 누구와, 어떤 콘텐츠</div>
+      <div class="eyebrow">Plan</div>
+      <div class="eyebrow kr">구성</div>
     </div>
     <div class="section-header">
-      <h2>One macro lead, mass micro seeding, paid amplification on the winner.</h2>
-      <div class="h2-kr">매크로 1인 리드, 마이크로 매스 시딩, 가장 반응 좋은 콘텐츠에 페이드 증폭.</div>
-      <p class="desc">Three roles in the pilot. Each role does one thing well. We do not spread the budget thin across many tiers — we concentrate it where the signal is most likely to surface.</p>
-      <p class="desc-kr">파일럿 내 세 가지 역할. 각 역할이 한 가지 일에 집중합니다. 예산을 여러 티어에 얇게 분산시키지 않고, 시그널이 가장 잘 드러날 위치에 집중 배치합니다.</p>
+      <h2>Two roles. Macro lead and micro volume.</h2>
+      <div class="h2-kr">두 가지 역할. 매크로 리드와 마이크로 볼륨.</div>
     </div>
 
-    <div class="plan-grid">
-
-      <!-- ROLE 1 · MACRO LEAD -->
-      <div class="plan-card">
-        <div class="plan-side">
-          <div>
-            <div class="plan-role">Role 01 · Macro Lead</div>
-            <div class="plan-role-kr">역할 1 · 매크로 리드</div>
+    <div class="role-grid">
+      <!-- ROLE 01 · MACRO LEAD -->
+      <div class="role-card">
+        <div class="role-num">Role 01 · 역할 1</div>
+        <h3>Daesung Seo · @daesungseo98</h3>
+        <div class="h3-kr">서대성 · 매크로 리드</div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="label">Reach · 도달</div>
+            <div class="value">2.6M</div>
           </div>
-          <div>
-            <div class="plan-budget">~50%</div>
-            <div class="plan-budget-label">Of pilot budget · 예산 비중</div>
+          <div class="stat">
+            <div class="label">Base · 거주</div>
+            <div class="value">NY, US</div>
+          </div>
+          <div class="stat">
+            <div class="label">Pieces · 콘텐츠</div>
+            <div class="value">2 + 5–7</div>
           </div>
         </div>
-        <div class="plan-body">
-          <div>
-            <h3>Daesung Seo · @daesungseo98</h3>
-            <div class="h3-kr">서대성 · @daesungseo98 · 뉴욕 거주, 2.6M 합산 도달</div>
-          </div>
-          <p class="plan-detail">NY-based Korean-American creator, 2.6M combined reach across TikTok and Instagram. Booked at a preferred rate for MUMUKI as a relationship gesture from the Sensitive Ones side. Daesung's content carries credibility for K-beauty US audiences without feeling like a paid placement.</p>
-          <p class="plan-detail kr">뉴욕 거주 한국계 미국인 크리에이터, TikTok+Instagram 합산 도달 2.6M. MUMUKI에 대한 우대 단가로 진행됩니다 — Sensitive Ones 측의 관계 고려 차원. 대성 대표의 콘텐츠는 미국 K-뷰티 오디언스에게 신뢰감을 주며, 페이드 광고처럼 느껴지지 않습니다.</p>
-          <ul class="content-list">
-            <li><strong>Content piece 1 — BDRN ingredient angle.</strong> "What is BDRN?" Quick explainer on the Jeju banana origin, the hero claim, why it's different from PDRN. <span class="kr"><strong>콘텐츠 1 — BDRN 성분 앵글.</strong> "BDRN이 뭐야?" 제주 바나나 유래, 핵심 효능, PDRN과의 차이를 짧게 설명.</span></li>
-            <li><strong>Content piece 2 — Amazon-driven cushion try-on.</strong> Real-time application, no-darkening claim demo, Amazon link in caption and bio. <span class="kr"><strong>콘텐츠 2 — 아마존 연결 쿠션 트라이온.</strong> 실시간 사용, 다크닝 없음 클레임 시연, 캡션과 바이오에 아마존 링크.</span></li>
-            <li><strong>Story support — 5-7 Stories.</strong> Behind-the-scenes, packaging shots, real-time reactions. Drives discovery to feed posts. <span class="kr"><strong>스토리 서포트 — 5-7개.</strong> 비하인드, 패키징, 실시간 반응. 피드 콘텐츠로의 유입 견인.</span></li>
-          </ul>
-        </div>
+        <ul>
+          <li>1 ingredient piece (BDRN explainer)<span class="kr">콘텐츠 1 · BDRN 성분 해설</span></li>
+          <li>1 product piece (cushion try-on, Amazon link in caption)<span class="kr">콘텐츠 2 · 쿠션 트라이온, 캡션에 아마존 링크</span></li>
+          <li>5–7 supporting Stories<span class="kr">스토리 서포트 5–7개</span></li>
+          <li>Cross-platform: TikTok + Instagram<span class="kr">크로스 플랫폼: 틱톡 + 인스타그램</span></li>
+        </ul>
       </div>
-
-      <!-- ROLE 2 · NURI MICRO SEEDING -->
-      <div class="plan-card">
-        <div class="plan-side">
-          <div>
-            <div class="plan-role">Role 02 · Mass Micro Seeding</div>
-            <div class="plan-role-kr">역할 2 · 마이크로 매스 시딩</div>
+      <!-- ROLE 02 · MICRO SEEDING -->
+      <div class="role-card">
+        <div class="role-num">Role 02 · 역할 2</div>
+        <h3>Micro Seeding · 60–100 creators</h3>
+        <div class="h3-kr">마이크로 시딩 · 60–100명</div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="label">Creators · 크리에이터</div>
+            <div class="value">60–100</div>
           </div>
-          <div>
-            <div class="plan-budget">~30%</div>
-            <div class="plan-budget-label">Of pilot budget · 예산 비중</div>
+          <div class="stat">
+            <div class="label">Tier · 티어</div>
+            <div class="value">10K–80K</div>
+          </div>
+          <div class="stat">
+            <div class="label">Land Rate · 진행률</div>
+            <div class="value">~70%</div>
           </div>
         </div>
-        <div class="plan-body">
-          <div>
-            <h3>~100 Micro Creators via 누리</h3>
-            <div class="h3-kr">누리를 통한 마이크로 100명 시딩</div>
-          </div>
-          <p class="plan-detail">A volume layer of nano and micro creators sourced through 누리's seeding network. Not curated individually — selected for K-beauty audience overlap, US-residency, baseline engagement floor. Purpose: density. When a brand appears across many feeds simultaneously, it creates the "I keep seeing this" effect that drives Amazon search volume.</p>
-          <p class="plan-detail kr">누리의 시딩 네트워크를 통해 섭외하는 나노·마이크로 크리에이터 볼륨 레이어. 개별 큐레이션이 아닌 K-뷰티 오디언스 매칭, 미국 거주, 최소 인게이지먼트 기준에 따라 선별. 목적은 밀도. 브랜드가 여러 피드에 동시에 등장하면 "어디서나 본다"는 효과가 발생하며, 이는 아마존 검색량을 견인합니다.</p>
-          <ul class="content-list">
-            <li><strong>Format mix.</strong> Short-form unboxing, GRWM with the cushion, ASMR bubble mask, ingredient mention, 7-day test snippets. <span class="kr"><strong>포맷 믹스.</strong> 숏폼 언박싱, 쿠션 GRWM, 버블 마스크 ASMR, 성분 언급, 7일 사용 후기 스니펫.</span></li>
-            <li><strong>Amazon link in every post.</strong> Caption, bio, or both. The single most important behavioral instruction for this layer. <span class="kr"><strong>모든 포스팅에 아마존 링크.</strong> 캡션, 바이오, 또는 둘 다. 이 레이어의 가장 중요한 단일 행동 지침.</span></li>
-            <li><strong>Volume target.</strong> 60-100 pieces of content depending on creator response rate. Not all will land — the layer is sized to absorb that. <span class="kr"><strong>물량 목표.</strong> 크리에이터 응답률에 따라 60-100개 콘텐츠. 모든 콘텐츠가 다 잘되지는 않습니다 — 레이어 자체가 그 가능성을 흡수하도록 설계.</span></li>
-          </ul>
-        </div>
+        <ul>
+          <li>Sourced through Sensitive Ones partner network<span class="kr">Sensitive Ones 파트너 네트워크 통해 섭외</span></li>
+          <li>Amazon link in every post (caption or bio)<span class="kr">모든 포스팅에 아마존 링크 (캡션 또는 바이오)</span></li>
+          <li>Format mix: unboxing, GRWM, ingredient mention, 7-day test<span class="kr">포맷 믹스: 언박싱, GRWM, 성분 언급, 7일 사용기</span></li>
+          <li>~70% post rate baseline (40–70 actual posts)<span class="kr">기준 진행률 ~70% (실제 포스팅 40–70개)</span></li>
+        </ul>
       </div>
-
-      <!-- ROLE 3 · SPARK ADS -->
-      <div class="plan-card">
-        <div class="plan-side">
-          <div>
-            <div class="plan-role">Role 03 · Spark Ads</div>
-            <div class="plan-role-kr">역할 3 · 스파크 광고</div>
-          </div>
-          <div>
-            <div class="plan-budget">~10%</div>
-            <div class="plan-budget-label">Of pilot budget · 예산 비중</div>
-          </div>
-        </div>
-        <div class="plan-body">
-          <div>
-            <h3>Paid amplification on the winner.</h3>
-            <div class="h3-kr">가장 반응 좋은 콘텐츠에 페이드 증폭.</div>
-          </div>
-          <p class="plan-detail">We do not boost everything. We wait for the first piece to show organic traction — high view-through rate, save velocity, comment density — and then we amplify only that one piece via TikTok Spark Ads. Cost-efficient and high-leverage. The signal we get from the winner is more useful than spreading the same budget across multiple boosts.</p>
-          <p class="plan-detail kr">모든 콘텐츠를 부스트하지 않습니다. 가장 먼저 유기적인 반응을 보이는 콘텐츠 — 시청 완료율, 저장 속도, 댓글 밀도 — 가 나온 뒤에 그 콘텐츠 한 편에만 TikTok 스파크 광고로 증폭합니다. 비용 효율적이고 레버리지가 높은 방식. 같은 예산을 여러 부스트에 분산하는 것보다 우승 콘텐츠 한 편에서 얻는 시그널이 훨씬 유용합니다.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ROLE 4 · SO MANAGEMENT -->
-    <div class="callout">
-      <strong>Sensitive Ones management — ~10% of budget.</strong> Creator briefing, content review, posting calendar coordination, performance reporting, daily monitoring during the 30-day window.
-      <div class="kr"><strong>Sensitive Ones 운영 — 예산 약 10%.</strong> 크리에이터 브리핑, 콘텐츠 검토, 포스팅 일정 조율, 성과 리포팅, 30일 윈도우 동안의 일간 모니터링.</div>
     </div>
   </div>
 </section>
@@ -765,141 +778,199 @@ body {
   <div class="container">
     <div class="section-num">03</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">Timeline · 30 Days</div>
-      <div class="eyebrow kr">타임라인 · 30일</div>
+      <div class="eyebrow">Timeline</div>
+      <div class="eyebrow kr">타임라인</div>
     </div>
     <div class="section-header">
-      <h2>Four-week shape, concentrated launch window.</h2>
-      <div class="h2-kr">4주 구조, 집중 런칭 윈도우.</div>
-      <p class="desc">All major content drops within a tight window in Week 2 to concentrate algorithmic momentum. Week 1 is preparation. Weeks 3-4 are amplification, observation, and reporting.</p>
-      <p class="desc-kr">모든 주요 콘텐츠는 2주차의 좁은 윈도우 내에 집중 드롭하여 알고리즘 모멘텀을 만듭니다. 1주차는 준비, 3-4주차는 증폭·관찰·리포팅 단계입니다.</p>
+      <h2>Four weeks. Concentrated drop in Week 2.</h2>
+      <div class="h2-kr">4주 구성. 2주차 집중 드롭.</div>
     </div>
 
-    <div class="timeline">
+    <div class="timeline-table">
       <div class="timeline-row">
-        <div class="step-num">01</div>
+        <div class="week">Week 1</div>
         <div>
-          <div class="when">Week 1</div>
-          <div class="when-kr">1주차</div>
+          <div class="when">Days 1–7</div>
+          <div class="when-kr">1–7일차</div>
         </div>
         <div>
-          <div class="what">Pre-production. Brief development for Daesung. 누리 micro pool selection. Product shipment to Daesung.<span class="what-kr">사전 제작. 대성 대표 브리프 개발. 누리 마이크로 풀 선정. 대성 대표에게 제품 발송.</span></div>
+          <div class="what">Brief development. Micro pool selection. Product shipped to Daesung and to micro creators.</div>
+          <div class="what-kr">브리프 개발. 마이크로 풀 선정. 대성 + 마이크로 크리에이터 제품 발송.</div>
+        </div>
+      </div>
+      <div class="timeline-row production">
+        <div class="week">Week 2</div>
+        <div>
+          <div class="when">Days 8–14</div>
+          <div class="when-kr">8–14일차</div>
+        </div>
+        <div>
+          <div class="what"><strong>Concentrated drop.</strong> Daesung's 2 main pieces post within 7 days. First batch of ~50 micro creators posts within the same window.</div>
+          <div class="what-kr"><strong>집중 드롭.</strong> 대성 메인 콘텐츠 2편 7일 내 공개. 동일 윈도우 내 마이크로 1차 배치 약 50명 진행.</div>
         </div>
       </div>
       <div class="timeline-row">
-        <div class="step-num">02</div>
+        <div class="week">Week 3</div>
         <div>
-          <div class="when">Week 2</div>
-          <div class="when-kr">2주차</div>
+          <div class="when">Days 15–21</div>
+          <div class="when-kr">15–21일차</div>
         </div>
         <div>
-          <div class="what">Concentrated launch window. Daesung's two pieces drop in same week. 누리 first batch (~50 creators) follows within the same 7-day window.<span class="what-kr">집중 런칭 윈도우. 대성 대표의 콘텐츠 2편이 같은 주에 드롭. 누리 1차 배치(약 50명)도 동일한 7일 윈도우 내에 진행.</span></div>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <div class="step-num">03</div>
-        <div>
-          <div class="when">Week 3</div>
-          <div class="when-kr">3주차</div>
-        </div>
-        <div>
-          <div class="what">누리 second batch (~50 creators) drops. Spark Ads activated on Daesung's winning piece based on Week 2 organic data.<span class="what-kr">누리 2차 배치(약 50명) 진행. 2주차 유기적 데이터 기반으로 대성 대표의 우승 콘텐츠에 스파크 광고 활성화.</span></div>
+          <div class="what">Second batch of ~50 micro creators. Mid-pilot data check on Daesung's content performance and Amazon CTR.</div>
+          <div class="what-kr">마이크로 2차 배치 약 50명. 대성 콘텐츠 성과 및 아마존 CTR 중간 점검.</div>
         </div>
       </div>
       <div class="timeline-row">
-        <div class="step-num">04</div>
+        <div class="week">Week 4</div>
         <div>
-          <div class="when">Week 4</div>
-          <div class="when-kr">4주차</div>
+          <div class="when">Days 22–30</div>
+          <div class="when-kr">22–30일차</div>
         </div>
         <div>
-          <div class="what">Final batch of 누리 stragglers. Ongoing Spark Ads spend. Performance data compilation. End-of-pilot report begins.<span class="what-kr">누리 잔여 배치 마무리. 스파크 광고 지속. 성과 데이터 정리. 파일럿 종료 리포트 작성 시작.</span></div>
+          <div class="what">Stragglers and data compilation. End-of-pilot report drafted.</div>
+          <div class="what-kr">잔여 콘텐츠 마무리 및 데이터 정리. 파일럿 종료 리포트 초안 작성.</div>
         </div>
       </div>
       <div class="timeline-row">
-        <div class="step-num">05</div>
+        <div class="week">+7 days</div>
         <div>
-          <div class="when">Day 30 + 7</div>
-          <div class="when-kr">파일럿 종료 +7일</div>
+          <div class="when">Day 37</div>
+          <div class="when-kr">37일차</div>
         </div>
         <div>
-          <div class="what">Final report delivered. Decision call — scale, adjust, or stop. Recommendations grounded in actual pilot data, not assumption.<span class="what-kr">최종 리포트 제출. 의사결정 콜 — 확장, 조정, 또는 중단. 권장 사항은 가정이 아닌 실제 파일럿 데이터에 근거.</span></div>
+          <div class="what">Final report delivered. Decision call: scale, adjust, or stop.</div>
+          <div class="what-kr">최종 리포트 제출. 의사결정 콜: 확장 / 조정 / 중단.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 4 · DELIVERABLES -->
-<section class="section alt" id="deliverables">
+<!-- 4 · KPI TABLE -->
+<section class="section alt" id="kpi">
   <div class="container">
     <div class="section-num">04</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">Output · What MUMUKI Receives</div>
-      <div class="eyebrow kr">결과물 · MUMUKI가 받는 것</div>
+      <div class="eyebrow">KPIs · Honest Targets</div>
+      <div class="eyebrow kr">KPI · 정직한 목표 수치</div>
     </div>
     <div class="section-header">
-      <h2>What 3,000만원 actually delivers.</h2>
-      <div class="h2-kr">3,000만원으로 실제 받게 되는 것.</div>
+      <h2>Real ranges, no committed numbers.</h2>
+      <div class="h2-kr">실제 범위, 확정 약속 수치 없음.</div>
     </div>
 
-    <div class="deliverables">
-      <ul>
-        <li>1 macro creator (Daesung) producing 2 main pieces + Story support, fully managed by Sensitive Ones <span class="kr">매크로 크리에이터 1인(대성 대표)의 메인 콘텐츠 2편 + 스토리 서포트, Sensitive Ones 운영 일체</span></li>
-        <li>60–100 pieces of micro/nano UGC content via 누리 seeding network <span class="kr">누리 시딩 네트워크를 통한 60-100개의 마이크로/나노 UGC 콘텐츠</span></li>
-        <li>Amazon link integration in every micro post (caption, bio, or both) <span class="kr">모든 마이크로 포스팅에 아마존 링크 노출(캡션, 바이오, 또는 둘 다)</span></li>
-        <li>TikTok Spark Ads amplification on the winning organic piece <span class="kr">유기적으로 가장 잘 반응하는 콘텐츠에 TikTok 스파크 광고 증폭</span></li>
-        <li>Daily monitoring during the 30-day window — comment volume, save velocity, view-through rate, Amazon CTR <span class="kr">30일 윈도우 동안 일간 모니터링 — 댓글 볼륨, 저장 속도, 시청 완료율, 아마존 CTR</span></li>
-        <li>End-of-pilot report with raw data, signal interpretation, and a clear recommendation on whether to scale <span class="kr">파일럿 종료 시 리포트 — 원본 데이터, 시그널 해석, 확장 여부에 대한 명확한 권고안</span></li>
-      </ul>
+    <div class="kpi-wrap">
+      <div class="kpi-scroll">
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Metric<span class="kr">지표</span></th>
+              <th>Target Range<span class="kr">목표 범위</span></th>
+              <th>Note<span class="kr">참고</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="metric">Macro pieces<span class="kr">매크로 콘텐츠</span></td>
+              <td class="target">2 main + 5–7 Stories</td>
+              <td class="note">Daesung's direct deliverable<span class="kr">대성 직접 결과물</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Micro pieces<span class="kr">마이크로 콘텐츠</span></td>
+              <td class="target">60–100</td>
+              <td class="note">~70% landing rate; 40–70 actual posts<span class="kr">진행률 약 70%, 실제 포스팅 40–70개</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Combined views<span class="kr">합산 조회수</span></td>
+              <td class="target">200K – 1M</td>
+              <td class="note">Wide range; depends on content quality and audience pull<span class="kr">콘텐츠 품질·오디언스 반응에 따라 폭이 큼</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Amazon clicks<span class="kr">아마존 클릭수</span></td>
+              <td class="target">500 – 2,000</td>
+              <td class="note">Directional, not committed<span class="kr">방향성 수치, 확정 보장 아님</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Amazon CTR lift<span class="kr">아마존 CTR 상승</span></td>
+              <td class="target">+50% – +200%</td>
+              <td class="note">Vs pre-pilot baseline<span class="kr">파일럿 진행 전 기준 대비</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Branded search lift<span class="kr">브랜드 검색량 상승</span></td>
+              <td class="target">+30% – +150%</td>
+              <td class="note">Indicator of audience interest<span class="kr">오디언스 관심도 지표</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Cost per Amazon click<span class="kr">아마존 클릭당 비용</span></td>
+              <td class="target">₩15,000 – ₩30,000</td>
+              <td class="note">Pilot economics; expected to improve at scale<span class="kr">파일럿 단계 단가, 확장 시 개선 예상</span></td>
+            </tr>
+            <tr>
+              <td class="metric">Amazon orders<span class="kr">아마존 주문수</span></td>
+              <td class="target">Not promised</td>
+              <td class="note">Depends on listing readiness, price, reviews; reported but not committed<span class="kr">리스팅 완성도·가격·리뷰에 따라 변동, 보고는 하되 약속하지 않음</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="callout">
-      <strong>Honest range estimate.</strong> Across all the above content, expect approximately <strong>200K–1M combined views</strong>, <strong>500–3,000 Amazon clicks</strong>, and meaningful directional data on what content angle resonates with US K-beauty audiences. Amazon order count varies widely depending on listing readiness and price sensitivity — we do not commit to a specific number.
-      <div class="kr"><strong>현실적 수치 범위.</strong> 위의 모든 콘텐츠를 합쳐 약 <strong>합산 20만-100만 뷰</strong>, <strong>아마존 클릭 500-3,000회</strong>, 그리고 어떤 콘텐츠 앵글이 미국 K-뷰티 오디언스에게 통하는지에 대한 의미 있는 방향성 데이터. 아마존 주문 수는 리스팅 완성도와 가격 민감도에 따라 큰 폭으로 달라지므로 — 특정 숫자를 약속드리지 않습니다.</div>
+    <div class="scope-box">
+      <strong>Out of scope for this pilot:</strong> Amazon Top 50 ranking, single-piece viral break (1M+ views), founder narrative work, sustained 3+ month brand build, paid Amazon advertising. These belong to a follow-on phase, not to the 3,000만원 pilot.
+      <span class="kr"><strong>본 파일럿 범위 외 항목:</strong> 아마존 카테고리 Top 50 진입, 단일 콘텐츠 100만+ 뷰 바이럴, 창업자 내러티브 작업, 3개월 이상 지속 브랜드 빌드, 아마존 페이드 광고. 모두 확장 단계의 영역이며 3,000만원 파일럿에 포함되지 않습니다.</span>
     </div>
   </div>
 </section>
 
-<!-- 5 · AFTER PILOT -->
+<!-- 5 · AFTER DAY 30 · DECISION TREE -->
 <section class="section" id="after">
   <div class="container">
     <div class="section-num">05</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">After the Pilot</div>
-      <div class="eyebrow kr">파일럿 이후</div>
+      <div class="eyebrow">After Day 30</div>
+      <div class="eyebrow kr">30일 종료 후</div>
     </div>
     <div class="section-header">
-      <h2>Three honest paths after Day 30.</h2>
-      <div class="h2-kr">30일 종료 후 세 가지 정직한 경로.</div>
-      <p class="desc">The decision after the pilot is grounded in the actual data we collect, not in our assumption today. We commit to recommending the path that fits the data, even if it means recommending against scaling.</p>
-      <p class="desc-kr">파일럿 종료 후 의사결정은 오늘의 가정이 아닌 실제로 수집한 데이터에 근거합니다. 확장하지 않는 것이 옳다면 그렇게 권고드리며, 데이터에 맞는 경로를 정직하게 제안하는 것을 약속드립니다.</p>
+      <h2>Three paths. Decided by data.</h2>
+      <div class="h2-kr">세 가지 경로. 데이터로 결정.</div>
     </div>
 
-    <div class="paths-grid">
-      <div class="path-card">
-        <div class="path-label">Path A · 경로 A</div>
-        <h4>Strong signal → scale to full campaign</h4>
-        <div class="h4-kr">시그널 강함 → 정식 캠페인으로 확장</div>
-        <p>If Daesung's content breaks 500K+ views, Amazon CTR moves meaningfully, and 누리 layer drives consistent inbound — proceed to Phase 1 of the full 6-month campaign proposal at $100K.</p>
-      </div>
-      <div class="path-card">
-        <div class="path-label">Path B · 경로 B</div>
-        <h4>Mixed signal → adjusted second pilot</h4>
-        <div class="h4-kr">혼합 시그널 → 조정된 2차 파일럿</div>
-        <p>If signal is partial — content engages but Amazon doesn't convert — run a second pilot with adjusted creator mix and stronger Amazon Sponsored Products layer before any larger commitment.</p>
-      </div>
-      <div class="path-card">
-        <div class="path-label">Path C · 경로 C</div>
-        <h4>Weak signal → stop and reassess</h4>
-        <div class="h4-kr">시그널 약함 → 중단 및 재평가</div>
-        <p>If the data shows the brand isn't resonating at this stage — we recommend stopping rather than throwing more budget at the same shape. The pilot has done its job by surfacing that early.</p>
-      </div>
-    </div>
+    <div class="decision-tree">
+      <div class="tree-trunk">Day 30 Data <span class="kr">데이터 검토</span></div>
+      <div class="tree-stem"></div>
+      <div class="tree-branches">
 
-    <div class="callout">
-      <strong>This is the value of starting small.</strong> A 30-day pilot at 3,000만원 surfaces a real answer for far less than the cost of a 6-month commitment built on assumption. Whichever path we end up on, MUMUKI ends Day 30 with usable data and a clearer next decision than starting now.
-      <div class="kr"><strong>작게 시작하는 것의 진짜 가치.</strong> 3,000만원의 30일 파일럿은 가정 위에 세운 6개월 약정의 비용 대비 훨씬 적은 비용으로 실제 답을 도출합니다. 어떤 경로에 도달하든 MUMUKI는 30일 종료 시점에 활용 가능한 데이터와, 지금 시작하는 것보다 더 명확한 다음 결정을 손에 쥐게 됩니다.</div>
+        <div class="tree-branch positive">
+          <div class="branch-card">
+            <div class="branch-tag">Path A · 경로 A</div>
+            <div class="branch-criteria">Strong signal<span class="kr">시그널 강함</span></div>
+            <div class="branch-data">Combined views 700K+ · Amazon CTR +100%+ · Branded search clearly up</div>
+            <div class="branch-arrow">↓</div>
+            <div class="branch-decision">Phase 1 of full campaign<span class="kr">정식 캠페인 1단계 ($100K)</span></div>
+          </div>
+        </div>
+
+        <div class="tree-branch neutral">
+          <div class="branch-card">
+            <div class="branch-tag">Path B · 경로 B</div>
+            <div class="branch-criteria">Mixed signal<span class="kr">혼합 시그널</span></div>
+            <div class="branch-data">Engagement strong but Amazon flat · or content lands but reach below target</div>
+            <div class="branch-arrow">↓</div>
+            <div class="branch-decision">Adjusted second pilot<span class="kr">조정된 2차 파일럿</span></div>
+          </div>
+        </div>
+
+        <div class="tree-branch negative">
+          <div class="branch-card">
+            <div class="branch-tag">Path C · 경로 C</div>
+            <div class="branch-criteria">Weak signal<span class="kr">시그널 약함</span></div>
+            <div class="branch-data">Views under 200K · Amazon CTR flat · No branded search movement</div>
+            <div class="branch-arrow">↓</div>
+            <div class="branch-decision">Stop and reassess<span class="kr">중단 및 재평가</span></div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -921,28 +992,28 @@ body {
         <div class="num">Step 01 · 1단계</div>
         <div class="title">Confirm direction.</div>
         <div class="title-kr">방향 확정.</div>
-        <div class="desc">A single yes on the 3,000만원 30-day pilot shape.</div>
-        <div class="desc-kr">3,000만원 · 30일 파일럿 진행에 대한 yes.</div>
+        <div class="desc">Yes/no on the 3,000만원 30-day pilot.</div>
+        <div class="desc-kr">3,000만원 · 30일 파일럿 진행에 대한 yes/no.</div>
       </div>
       <div class="next-step">
         <div class="num">Step 02 · 2단계</div>
-        <div class="title">Brief alignment call.</div>
-        <div class="title-kr">브리프 정렬 콜.</div>
-        <div class="desc">15–20 minutes. Confirm Amazon listing status, BDRN claim language, hashtag and brand handle decisions, product shipment logistics.</div>
-        <div class="desc-kr">15-20분. 아마존 리스팅 상태, BDRN 클레임 표현, 해시태그 및 브랜드 핸들 결정, 제품 배송 물류 정렬.</div>
+        <div class="title">15–20 min alignment call.</div>
+        <div class="title-kr">15–20분 정렬 콜.</div>
+        <div class="desc">Amazon listing status, BDRN claim language, hashtag and brand handle, product shipping.</div>
+        <div class="desc-kr">아마존 리스팅 상태, BDRN 클레임 표현, 해시태그·브랜드 핸들, 제품 배송 정렬.</div>
       </div>
       <div class="next-step">
         <div class="num">Step 03 · 3단계</div>
         <div class="title">Agreement and start.</div>
         <div class="title-kr">계약 및 시작.</div>
-        <div class="desc">Within 3 business days of the call. Pilot Week 1 begins immediately after.</div>
-        <div class="desc-kr">콜로부터 영업일 3일 이내. 콜 직후 파일럿 1주차 시작.</div>
+        <div class="desc">Within 3 business days of the call. Week 1 begins immediately.</div>
+        <div class="desc-kr">콜로부터 영업일 3일 이내. 콜 직후 1주차 시작.</div>
       </div>
     </div>
 
-    <div class="callout">
-      <strong>Disclosure.</strong> Daesung Seo, who initiated this conversation, is Sensitive Ones' co-founder and the macro lead in this pilot (@daesungseo98). His incentive is therefore aligned with MUMUKI's success. Disclosed as standard practice.
-      <div class="kr"><strong>디스클로저.</strong> 이 대화를 시작한 대성 서 대표는 Sensitive Ones 공동창업자이자 본 파일럿의 매크로 리드(@daesungseo98)입니다. 따라서 그의 인센티브는 MUMUKI의 성과와 정렬되어 있습니다. 표준 에이전시 관행에 따라 사전에 투명하게 디스클로즈합니다.</div>
+    <div class="disclosure">
+      <strong>Disclosure.</strong> Daesung Seo (@daesungseo98) is Sensitive Ones' co-founder and the macro lead in this pilot. His incentive is aligned with MUMUKI's outcome.
+      <span class="kr"><strong>디스클로저.</strong> 대성 서 대표(@daesungseo98)는 Sensitive Ones 공동창업자이자 본 파일럿의 매크로 리드입니다. 그의 인센티브는 MUMUKI의 성과와 정렬되어 있습니다.</span>
     </div>
   </div>
 </section>
@@ -979,7 +1050,7 @@ body {
     </div>
   </div>
   <div class="footer-bottom-wrap">
-    <div class="footer-bottom">MUMUKI · 30-Day Validation Pilot · Confidential · 기밀 · May 3, 2026</div>
+    <div class="footer-bottom">MUMUKI · 30-Day Pilot Test · Confidential · 기밀 · 2026.05.03</div>
   </div>
 </footer>
 
