@@ -207,24 +207,56 @@ body {
   font-size: 12px; color: var(--text-mid); font-weight: 500; margin-top: 2px;
 }
 
-/* BUDGET BAR — stacked horizontal chart */
-.budget-bar-wrap {
+/* TWO-OPTION BUDGET LAYOUT */
+.budget-options {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 1.6vw, 22px);
+}
+.budget-option {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 12px;
   padding: clamp(20px, 2vw + 8px, 28px);
+  display: flex; flex-direction: column; gap: 14px;
 }
-.budget-bar-header {
+.option-header {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.option-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--accent);
+}
+.option-title {
+  font-size: clamp(17px, 1vw + 8px, 21px); font-weight: 700;
+  letter-spacing: -0.3px; line-height: 1.2;
+}
+.option-title-kr {
+  font-size: clamp(13px, 0.4vw + 9px, 15px); font-weight: 600;
+  color: var(--text-mid); letter-spacing: -0.1px;
+}
+.option-total-row {
   display: flex; justify-content: space-between; align-items: baseline;
-  margin-bottom: 14px; flex-wrap: wrap; gap: 10px;
+  flex-wrap: wrap; gap: 8px;
+  padding-bottom: 4px;
 }
-.budget-bar-title {
-  font-size: 13px; font-weight: 700; letter-spacing: 0.3px;
+.option-total-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
 }
-.budget-bar-title .kr { font-size: 12px; color: var(--text-mid); font-weight: 500; margin-left: 8px; }
-.budget-bar-total {
-  font-size: clamp(20px, 1.4vw + 8px, 26px); font-weight: 700;
-  color: var(--accent-deep); letter-spacing: -0.4px;
+.option-total-label .kr {
+  font-size: 11px; color: var(--text-mid); font-weight: 500; margin-left: 8px;
+}
+.option-total-value {
+  font-size: clamp(18px, 1.2vw + 8px, 24px); font-weight: 700;
+  color: var(--accent-deep); letter-spacing: -0.3px;
   font-variant-numeric: tabular-nums;
+}
+.option-narrative {
+  font-size: 12.5px; color: var(--text-mid); line-height: 1.65;
+  margin-top: 4px; padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+.option-narrative .kr {
+  display: block; font-size: 11.5px; color: var(--text-soft); margin-top: 4px;
 }
 .budget-bar {
   display: flex; height: 56px; border-radius: 8px; overflow: hidden;
@@ -264,12 +296,22 @@ body {
 .legend-item .legend-text .amount { font-variant-numeric: tabular-nums; color: var(--text-mid); }
 .legend-item .legend-text .kr { display: block; font-size: 11.5px; color: var(--text-mid); margin-top: 2px; }
 
-/* ROLE / PLAN cards · 2 roles only */
+/* ROLE / PLAN cards */
 .role-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: var(--gap-grid);
   margin-top: clamp(20px, 2.5vw, 28px);
 }
+.role-grid.role-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.role-applies {
+  font-size: 11px; font-weight: 600; color: var(--text-mid);
+  padding: 6px 10px; background: var(--bg-section);
+  border-radius: 6px; margin: 4px 0 4px 0;
+  line-height: 1.45;
+}
+.role-applies.opt2 { background: var(--honey-soft); color: var(--honey); }
+.role-applies .kr { display: block; font-size: 10.5px; color: var(--text-soft); margin-top: 2px; font-weight: 500; }
+.role-applies.opt2 .kr { color: rgba(217, 164, 65, 0.85); }
 .role-card {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 12px; padding: clamp(20px, 2vw + 10px, 28px);
@@ -547,7 +589,10 @@ body {
   /* Section number watermark overlaps H2 on mobile — hide */
   .section-num { display: none; }
 
-  .role-grid { grid-template-columns: 1fr; }
+  /* Two-option layout stacks vertically on mobile */
+  .budget-options { grid-template-columns: 1fr; }
+
+  .role-grid, .role-grid.role-grid-3 { grid-template-columns: 1fr; }
 
   /* Timeline rows stack each child */
   .timeline-row {
@@ -680,89 +725,147 @@ body {
   </div>
 </section>
 
-<!-- 1 · BUDGET -->
+<!-- 1 · TWO OPTIONS -->
 <section class="section" id="budget">
   <div class="container">
     <div class="section-num">01</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">Budget Allocation</div>
-      <div class="eyebrow kr">예산 분배</div>
+      <div class="eyebrow">Two Options · Same Budget</div>
+      <div class="eyebrow kr">두 가지 옵션 · 동일 예산</div>
     </div>
     <div class="section-header">
-      <h2>3,000만원, allocated to creators.</h2>
-      <div class="h2-kr">3,000만원, 크리에이터에게 배분.</div>
+      <h2>3,000만원, two ways to allocate.</h2>
+      <div class="h2-kr">3,000만원, 두 가지 분배 방식.</div>
     </div>
 
-    <div class="budget-bar-wrap">
-      <div class="budget-bar-header">
-        <div class="budget-bar-title">Total <span class="kr">총액</span></div>
-        <div class="budget-bar-total">₩30,000,000</div>
-      </div>
-      <div class="budget-bar">
-        <div class="budget-segment s1" style="width: 60%">
-          <div class="seg-label">Macro Lead</div>
-          <div class="seg-pct">60%</div>
+    <div class="budget-options">
+
+      <!-- OPTION 1 -->
+      <div class="budget-option">
+        <div class="option-header">
+          <div class="option-tag">Option 1 · 옵션 1</div>
+          <h3 class="option-title">1 Macro + Micro Seeding</h3>
+          <div class="option-title-kr">매크로 1 + 마이크로 시딩</div>
         </div>
-        <div class="budget-segment s2" style="width: 40%">
-          <div class="seg-label">Micro Seeding</div>
-          <div class="seg-pct">40%</div>
+        <div class="option-total-row">
+          <div class="option-total-label">Total <span class="kr">총액</span></div>
+          <div class="option-total-value">₩30,000,000</div>
         </div>
-      </div>
-      <div class="budget-legend">
-        <div class="legend-item">
-          <div class="swatch s1"></div>
-          <div class="legend-text">
-            <strong>Macro Lead · 60%</strong>
-            <span class="amount">₩18,000,000</span>
-            <span class="kr">메인 매크로 크리에이터</span>
+        <div class="budget-bar">
+          <div class="budget-segment s1" style="width: 50%">
+            <div class="seg-label">Macro Lead</div>
+            <div class="seg-pct">50%</div>
+          </div>
+          <div class="budget-segment s2" style="width: 50%">
+            <div class="seg-label">Micro Seeding</div>
+            <div class="seg-pct">50%</div>
           </div>
         </div>
-        <div class="legend-item">
-          <div class="swatch s2"></div>
-          <div class="legend-text">
-            <strong>Micro Seeding · 40%</strong>
-            <span class="amount">₩12,000,000</span>
-            <span class="kr">마이크로 60–100명 시딩</span>
+        <div class="budget-legend">
+          <div class="legend-item">
+            <div class="swatch s1"></div>
+            <div class="legend-text">
+              <strong>Macro Lead · 50%</strong>
+              <span class="amount">₩15,000,000</span>
+              <span class="kr">매크로 리드</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="swatch s2"></div>
+            <div class="legend-text">
+              <strong>Micro Seeding · 50%</strong>
+              <span class="amount">₩15,000,000</span>
+              <span class="kr">마이크로 시딩 · 60–100명</span>
+            </div>
           </div>
         </div>
+        <p class="option-narrative">
+          Maximum micro density. Single macro voice + heavy Amazon-link spread.
+          <span class="kr">마이크로 밀도 최대. 매크로 1인 + 헤비 아마존 링크 시딩.</span>
+        </p>
       </div>
+
+      <!-- OPTION 2 -->
+      <div class="budget-option">
+        <div class="option-header">
+          <div class="option-tag">Option 2 · 옵션 2</div>
+          <h3 class="option-title">1 Mega + 1 Mid + Micro</h3>
+          <div class="option-title-kr">메가 1 + 미드 1 + 마이크로</div>
+        </div>
+        <div class="option-total-row">
+          <div class="option-total-label">Total <span class="kr">총액</span></div>
+          <div class="option-total-value">₩30,000,000</div>
+        </div>
+        <div class="budget-bar">
+          <div class="budget-segment s1" style="width: 50%">
+            <div class="seg-label">Mega Lead</div>
+            <div class="seg-pct">50%</div>
+          </div>
+          <div class="budget-segment s2" style="width: 25%">
+            <div class="seg-label">Mid</div>
+            <div class="seg-pct">25%</div>
+          </div>
+          <div class="budget-segment s3" style="width: 25%">
+            <div class="seg-label">Micro</div>
+            <div class="seg-pct">25%</div>
+          </div>
+        </div>
+        <div class="budget-legend">
+          <div class="legend-item">
+            <div class="swatch s1"></div>
+            <div class="legend-text">
+              <strong>Mega Lead · 50%</strong>
+              <span class="amount">₩15,000,000</span>
+              <span class="kr">메가 리드 · 도달 5M+</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="swatch s2"></div>
+            <div class="legend-text">
+              <strong>Mid Creator · 25%</strong>
+              <span class="amount">₩7,500,000</span>
+              <span class="kr">미드 크리에이터 · 도달 250K–1M</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="swatch s3"></div>
+            <div class="legend-text">
+              <strong>Micro Seeding · 25%</strong>
+              <span class="amount">₩7,500,000</span>
+              <span class="kr">마이크로 시딩 · 40–50명</span>
+            </div>
+          </div>
+        </div>
+        <p class="option-narrative">
+          Maximum reach ceiling. Three-tier pyramid: bigger top, lighter bottom.
+          <span class="kr">도달 상한 최대. 3단 피라미드: 상위 비중 큼, 하위 가벼움.</span>
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- 2 · PLAN · 2 ROLES -->
+<!-- 2 · ROLES -->
 <section class="section alt" id="plan">
   <div class="container">
     <div class="section-num">02</div>
     <div class="eyebrow-bilingual">
-      <div class="eyebrow">Plan</div>
-      <div class="eyebrow kr">구성</div>
+      <div class="eyebrow">Roles</div>
+      <div class="eyebrow kr">역할별 구성</div>
     </div>
     <div class="section-header">
-      <h2>Two roles. Macro lead and micro volume.</h2>
-      <div class="h2-kr">두 가지 역할. 매크로 리드와 마이크로 볼륨.</div>
+      <h2>What each role delivers.</h2>
+      <div class="h2-kr">각 역할이 수행하는 것.</div>
     </div>
 
-    <div class="role-grid">
-      <!-- ROLE 01 · MACRO LEAD -->
+    <div class="role-grid role-grid-3">
+      <!-- ROLE 01 · LEAD -->
       <div class="role-card">
-        <div class="role-num">Role 01 · 역할 1</div>
-        <h3>Daesung Seo · @daesungseo98</h3>
-        <div class="h3-kr">서대성 · 매크로 리드</div>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="label">Reach · 도달</div>
-            <div class="value">2.6M</div>
-          </div>
-          <div class="stat">
-            <div class="label">Base · 거주</div>
-            <div class="value">NY, US</div>
-          </div>
-          <div class="stat">
-            <div class="label">Pieces · 콘텐츠</div>
-            <div class="value">2 + 5–7</div>
-          </div>
-        </div>
+        <div class="role-num">Lead · 리드</div>
+        <h3>Headline creator</h3>
+        <div class="h3-kr">헤드라인 크리에이터</div>
+        <div class="role-applies">Both options · Macro (Opt 1) / Mega (Opt 2)<span class="kr">두 옵션 모두 · 매크로 (옵션1) / 메가 (옵션2)</span></div>
         <ul>
           <li>1 ingredient piece (BDRN explainer)<span class="kr">콘텐츠 1 · BDRN 성분 해설</span></li>
           <li>1 product piece (cushion try-on, Amazon link in caption)<span class="kr">콘텐츠 2 · 쿠션 트라이온, 캡션에 아마존 링크</span></li>
@@ -770,30 +873,30 @@ body {
           <li>Cross-platform: TikTok + Instagram<span class="kr">크로스 플랫폼: 틱톡 + 인스타그램</span></li>
         </ul>
       </div>
-      <!-- ROLE 02 · MICRO SEEDING -->
+      <!-- ROLE 02 · MID CREATOR (Option 2 only) -->
       <div class="role-card">
-        <div class="role-num">Role 02 · 역할 2</div>
-        <h3>Micro Seeding · 60–100 creators</h3>
-        <div class="h3-kr">마이크로 시딩 · 60–100명</div>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="label">Creators · 크리에이터</div>
-            <div class="value">60–100</div>
-          </div>
-          <div class="stat">
-            <div class="label">Tier · 티어</div>
-            <div class="value">10K–80K</div>
-          </div>
-          <div class="stat">
-            <div class="label">Land Rate · 진행률</div>
-            <div class="value">~70%</div>
-          </div>
-        </div>
+        <div class="role-num">Mid · 미드</div>
+        <h3>Second voice</h3>
+        <div class="h3-kr">서브 보이스</div>
+        <div class="role-applies opt2">Option 2 only · 옵션 2 전용</div>
+        <ul>
+          <li>1 supporting piece on a different angle than the lead<span class="kr">리드와 다른 앵글의 서포팅 콘텐츠 1편</span></li>
+          <li>Audience cross-pollination — different demographic from lead<span class="kr">리드와 다른 데모그래픽 — 오디언스 교차 도달</span></li>
+          <li>Amazon link in caption<span class="kr">캡션에 아마존 링크</span></li>
+          <li>Single-platform delivery (TikTok or Instagram)<span class="kr">단일 플랫폼 (틱톡 또는 인스타그램)</span></li>
+        </ul>
+      </div>
+      <!-- ROLE 03 · MICRO SEEDING -->
+      <div class="role-card">
+        <div class="role-num">Micro · 마이크로</div>
+        <h3>Volume layer</h3>
+        <div class="h3-kr">볼륨 레이어</div>
+        <div class="role-applies">Both options · Opt 1 ~80–100 / Opt 2 ~40–50<span class="kr">두 옵션 모두 · 옵션1 약 80–100명 / 옵션2 약 40–50명</span></div>
         <ul>
           <li>Sourced through Sensitive Ones partner network<span class="kr">Sensitive Ones 파트너 네트워크 통해 섭외</span></li>
           <li>Amazon link in every post (caption or bio)<span class="kr">모든 포스팅에 아마존 링크 (캡션 또는 바이오)</span></li>
           <li>Format mix: unboxing, GRWM, ingredient mention, 7-day test<span class="kr">포맷 믹스: 언박싱, GRWM, 성분 언급, 7일 사용기</span></li>
-          <li>~70% post rate baseline (40–70 actual posts)<span class="kr">기준 진행률 ~70% (실제 포스팅 40–70개)</span></li>
+          <li>~70% post rate baseline<span class="kr">기준 진행률 ~70%</span></li>
         </ul>
       </div>
     </div>
