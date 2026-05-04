@@ -296,6 +296,48 @@ body {
 .legend-item .legend-text .amount { font-variant-numeric: tabular-nums; color: var(--text-mid); }
 .legend-item .legend-text .kr { display: block; font-size: 11.5px; color: var(--text-mid); margin-top: 2px; }
 
+/* CREATIVE CONCEPTS */
+.concept-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-grid);
+  margin-top: clamp(20px, 2.5vw, 28px);
+}
+.concept-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: clamp(20px, 2vw + 8px, 28px);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.concept-card .concept-num {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--accent);
+}
+.concept-card.has-ceo .concept-num {
+  color: var(--honey);
+}
+.concept-card h3 {
+  font-size: clamp(16px, 0.8vw + 8px, 19px); font-weight: 700;
+  letter-spacing: -0.3px; line-height: 1.25;
+}
+.concept-card .h3-kr {
+  font-size: clamp(12.5px, 0.4vw + 9px, 14.5px); font-weight: 600;
+  color: var(--text-mid); letter-spacing: -0.1px;
+}
+.concept-card .ceo-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  padding: 3px 8px; align-self: flex-start;
+  background: var(--honey-soft); color: var(--honey);
+  border: 1px solid var(--honey-line); border-radius: 100px;
+  margin: 2px 0;
+}
+.concept-card p {
+  font-size: 13px; color: var(--text); line-height: 1.6;
+}
+.concept-card p.kr {
+  color: var(--text-mid); font-size: 12px;
+  padding-top: 10px; margin-top: 4px;
+  border-top: 1px dashed var(--border);
+}
+
 /* ROLE / PLAN cards */
 .role-grid {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -593,6 +635,7 @@ body {
   .budget-options { grid-template-columns: 1fr; }
 
   .role-grid, .role-grid.role-grid-3 { grid-template-columns: 1fr; }
+  .concept-grid { grid-template-columns: 1fr; }
 
   /* Timeline rows stack each child */
   .timeline-row {
@@ -665,7 +708,8 @@ body {
     </div>
     <div class="nav-links">
       <a href="#budget">Budget · 예산</a>
-      <a href="#plan">Plan · 구성</a>
+      <a href="#plan">Roles · 역할</a>
+      <a href="#concepts">Concepts · 컨셉</a>
       <a href="#timeline">Timeline · 타임라인</a>
       <a href="#deliverables">Deliverables · 결과물</a>
       <a href="#after">After · 이후</a>
@@ -903,10 +947,67 @@ body {
   </div>
 </section>
 
-<!-- 3 · TIMELINE -->
-<section class="section" id="timeline">
+<!-- 3 · CREATIVE DIRECTION -->
+<section class="section" id="concepts">
   <div class="container">
     <div class="section-num">03</div>
+    <div class="eyebrow-bilingual">
+      <div class="eyebrow">Creative Direction</div>
+      <div class="eyebrow kr">크리에이티브 디렉션</div>
+    </div>
+    <div class="section-header">
+      <h2>Hook concepts for Daesung's content.</h2>
+      <div class="h2-kr">대성 컨텐츠의 후킹 컨셉.</div>
+    </div>
+
+    <div class="concept-grid">
+      <!-- CONCEPT 01 · SUBWAY HOOK -->
+      <div class="concept-card">
+        <div class="concept-num">Concept 01 · 컨셉 1</div>
+        <h3>Subway Banana Hook</h3>
+        <div class="h3-kr">지하철 바나나 후킹</div>
+        <p>Daesung applies banana puree to his face on the NYC subway. BDRN explained in voiceover. Strangers' reactions as the visual hook. Built for high first-3-second watch rate.</p>
+        <p class="kr">대성이 뉴욕 지하철에서 얼굴에 바나나 푸레를 바르는 콘텐츠. BDRN을 보이스오버로 설명. 낯선 사람들의 반응이 비주얼 후크. 첫 3초 시청 유지율 최대화 설계.</p>
+      </div>
+      <!-- CONCEPT 02 · CENTRAL PARK -->
+      <div class="concept-card">
+        <div class="concept-num">Concept 02 · 컨셉 2</div>
+        <h3>Central Park Skincare with a Stranger</h3>
+        <div class="h3-kr">센트럴 파크 · 낯선 사람과 스킨케어</div>
+        <p>Daesung sits next to a stranger in Central Park and offers them MUMUKI skincare. Real interaction, real reaction. Public space normalizes the brand into NYC daily life.</p>
+        <p class="kr">대성이 센트럴 파크에서 낯선 사람 옆에 앉아 MUMUKI 스킨케어를 함께 진행. 실제 인터랙션과 반응. 공공 공간이 브랜드를 뉴욕 일상에 자연스럽게 노출.</p>
+      </div>
+      <!-- CONCEPT 03 · COUPLE GIVEAWAY (CEO + Daesung) -->
+      <div class="concept-card has-ceo">
+        <div class="concept-num">Concept 03 · 컨셉 3</div>
+        <span class="ceo-tag">CEO + Daesung · 대표님 · 대성</span>
+        <h3>Couple Giveaway on the Street</h3>
+        <div class="h3-kr">길거리 커플 무료 나눔</div>
+        <p>Daesung and 임지현 대표 hand out MUMUKI products to NYC couples on camera. Founder visibility built natively into the moment — no scripted founder intro needed.</p>
+        <p class="kr">대성과 임지현 대표가 뉴욕 거리에서 커플들에게 MUMUKI 제품 무료 나눔 영상 촬영. 창업자 노출을 자연스러운 순간에 녹임 — 별도의 창업자 소개 컨텐츠 불필요.</p>
+      </div>
+      <!-- CONCEPT 04 · CEO-LED, DAESUNG DIRECTED -->
+      <div class="concept-card has-ceo">
+        <div class="concept-num">Concept 04 · 컨셉 4</div>
+        <span class="ceo-tag">CEO-led · 대표님 출연</span>
+        <h3>CEO Subway Skincare · Daesung Directs</h3>
+        <div class="h3-kr">대표님 지하철 스킨케어 · 대성 디렉션</div>
+        <p>임지현 대표 produces her own piece showing banana skincare to American strangers on the subway. Daesung handles creative direction off-camera so the founder voice carries the content.</p>
+        <p class="kr">임지현 대표가 미국인 낯선 사람들에게 지하철에서 바나나 스킨케어를 보여주는 자체 콘텐츠. 대성이 카메라 뒤에서 크리에이티브 디렉션을 맡아 창업자의 보이스가 콘텐츠를 끌고 가도록 설계.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      Concepts above are starting points. Final creative direction confirmed in alignment call. CEO appearance in Concepts 03 and 04 is a built-in for MUMUKI — no additional creator cost.
+      <div class="kr">위 컨셉은 출발점입니다. 최종 크리에이티브 디렉션은 정렬 콜에서 확정. 컨셉 03·04의 임지현 대표 출연은 MUMUKI 전용 내장 — 별도 크리에이터 비용 없음.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · TIMELINE -->
+<section class="section alt" id="timeline">
+  <div class="container">
+    <div class="section-num">04</div>
     <div class="eyebrow-bilingual">
       <div class="eyebrow">Timeline</div>
       <div class="eyebrow kr">타임라인</div>
@@ -976,10 +1077,10 @@ body {
   </div>
 </section>
 
-<!-- 4 · DELIVERABLES -->
-<section class="section alt" id="deliverables">
+<!-- 5 · DELIVERABLES -->
+<section class="section" id="deliverables">
   <div class="container">
-    <div class="section-num">04</div>
+    <div class="section-num">05</div>
     <div class="eyebrow-bilingual">
       <div class="eyebrow">Deliverables</div>
       <div class="eyebrow kr">결과물</div>
@@ -1042,10 +1143,10 @@ body {
   </div>
 </section>
 
-<!-- 5 · AFTER DAY 30 · DECISION TREE -->
-<section class="section" id="after">
+<!-- 6 · AFTER DAY 30 · DECISION TREE -->
+<section class="section alt" id="after">
   <div class="container">
-    <div class="section-num">05</div>
+    <div class="section-num">06</div>
     <div class="eyebrow-bilingual">
       <div class="eyebrow">After Day 30</div>
       <div class="eyebrow kr">30일 종료 후</div>
